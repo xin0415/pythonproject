@@ -1,0 +1,10 @@
+" 1 + 2 = " + ' 3 '
+["abc",["bcd",["cde","def"]]][1][1][1][1]
+1 + 2.5
+'substring' in "There is a substring in this string"
+True or False and False
+(True or False) and False
+1 <> 2 and 'T' + (((["abc", ["def", "ghi"]][1][1][1]))) + "is" in "This string contains h"
+True and not False or not True and False
+1 // 2 + 5 > 5
+4 ** 3 ** 2 <> (4 ** 3)**2

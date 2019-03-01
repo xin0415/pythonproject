@@ -1,0 +1,2865 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> smt
+Rule 1     smt -> print_smt
+Rule 2     print_smt -> PRINT LPAREN expression RPAREN SEMI
+Rule 3     expression -> LBRACE inblock RBRACE LBRACE factor RBRACE
+Rule 4     inblock -> expression COMMA inblock
+Rule 5     expression -> expression LBRACE factor RBRACE
+Rule 6     inblock -> LBRACE inblock RBRACE
+Rule 7     inblock -> smt inblock
+Rule 8     inblock -> expression
+Rule 9     expression -> expression PLUS expression
+Rule 10    expression -> expression MINUS expression
+Rule 11    expression -> expression TIMES expression
+Rule 12    expression -> expression DIVIDE expression
+Rule 13    expression -> expression POWER expression
+Rule 14    expression -> expression MODULUS expression
+Rule 15    expression -> expression FLOOR expression
+Rule 16    expression -> expression LESS expression
+Rule 17    expression -> expression GREAT expression
+Rule 18    expression -> expression LESSEQU expression
+Rule 19    expression -> expression GREATEQU expression
+Rule 20    expression -> expression EQU expression
+Rule 21    expression -> expression NOTEQU expression
+Rule 22    expression -> expression AND expression
+Rule 23    expression -> expression OR expression
+Rule 24    expression -> expression NOT expression
+Rule 25    expression -> expression IN expression
+Rule 26    expression -> NOT expression
+Rule 27    expression -> MINUS expression
+Rule 28    expression -> factor
+Rule 29    factor -> NUMBER
+Rule 30    factor -> BOOLEAN
+Rule 31    factor -> STRING
+Rule 32    expression -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+AND                  : 22
+BOOLEAN              : 30
+COMMA                : 4
+DIVIDE               : 12
+EQU                  : 20
+FLOOR                : 15
+GREAT                : 17
+GREATEQU             : 19
+IN                   : 25
+LBRACE               : 3 3 5 6
+LESS                 : 16
+LESSEQU              : 18
+LPAREN               : 2 32
+MINUS                : 10 27
+MODULUS              : 14
+NOT                  : 24 26
+NOTEQU               : 21
+NUMBER               : 29
+OR                   : 23
+PLUS                 : 9
+POWER                : 13
+PRINT                : 2
+RBRACE               : 3 3 5 6
+RPAREN               : 2 32
+SEMI                 : 2
+STRING               : 31
+TIMES                : 11
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 2 4 5 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 26 27 32
+factor               : 3 5 28
+inblock              : 3 4 6 7
+print_smt            : 1
+smt                  : 7 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . smt
+    (1) smt -> . print_smt
+    (2) print_smt -> . PRINT LPAREN expression RPAREN SEMI
+
+    PRINT           shift and go to state 3
+
+    smt                            shift and go to state 1
+    print_smt                      shift and go to state 2
+
+state 1
+
+    (0) S' -> smt .
+
+
+
+state 2
+
+    (1) smt -> print_smt .
+
+    $end            reduce using rule 1 (smt -> print_smt .)
+    LBRACE          reduce using rule 1 (smt -> print_smt .)
+    NOT             reduce using rule 1 (smt -> print_smt .)
+    MINUS           reduce using rule 1 (smt -> print_smt .)
+    LPAREN          reduce using rule 1 (smt -> print_smt .)
+    NUMBER          reduce using rule 1 (smt -> print_smt .)
+    BOOLEAN         reduce using rule 1 (smt -> print_smt .)
+    STRING          reduce using rule 1 (smt -> print_smt .)
+    PRINT           reduce using rule 1 (smt -> print_smt .)
+
+
+state 3
+
+    (2) print_smt -> PRINT . LPAREN expression RPAREN SEMI
+
+    LPAREN          shift and go to state 4
+
+
+state 4
+
+    (2) print_smt -> PRINT LPAREN . expression RPAREN SEMI
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 6
+    factor                         shift and go to state 8
+
+state 5
+
+    (32) expression -> LPAREN . expression RPAREN
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 14
+    factor                         shift and go to state 8
+
+state 6
+
+    (2) print_smt -> PRINT LPAREN expression . RPAREN SEMI
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          shift and go to state 15
+    LBRACE          shift and go to state 16
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    LESS            shift and go to state 24
+    GREAT           shift and go to state 25
+    LESSEQU         shift and go to state 26
+    GREATEQU        shift and go to state 27
+    EQU             shift and go to state 28
+    NOTEQU          shift and go to state 29
+    AND             shift and go to state 30
+    OR              shift and go to state 31
+    NOT             shift and go to state 32
+    IN              shift and go to state 33
+
+
+state 7
+
+    (3) expression -> LBRACE . inblock RBRACE LBRACE factor RBRACE
+    (4) inblock -> . expression COMMA inblock
+    (6) inblock -> . LBRACE inblock RBRACE
+    (7) inblock -> . smt inblock
+    (8) inblock -> . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (1) smt -> . print_smt
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+    (2) print_smt -> . PRINT LPAREN expression RPAREN SEMI
+
+    LBRACE          shift and go to state 34
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+    PRINT           shift and go to state 3
+
+    inblock                        shift and go to state 35
+    factor                         shift and go to state 8
+    expression                     shift and go to state 36
+    smt                            shift and go to state 37
+    print_smt                      shift and go to state 2
+
+state 8
+
+    (28) expression -> factor .
+
+    RPAREN          reduce using rule 28 (expression -> factor .)
+    LBRACE          reduce using rule 28 (expression -> factor .)
+    PLUS            reduce using rule 28 (expression -> factor .)
+    MINUS           reduce using rule 28 (expression -> factor .)
+    TIMES           reduce using rule 28 (expression -> factor .)
+    DIVIDE          reduce using rule 28 (expression -> factor .)
+    POWER           reduce using rule 28 (expression -> factor .)
+    MODULUS         reduce using rule 28 (expression -> factor .)
+    FLOOR           reduce using rule 28 (expression -> factor .)
+    LESS            reduce using rule 28 (expression -> factor .)
+    GREAT           reduce using rule 28 (expression -> factor .)
+    LESSEQU         reduce using rule 28 (expression -> factor .)
+    GREATEQU        reduce using rule 28 (expression -> factor .)
+    EQU             reduce using rule 28 (expression -> factor .)
+    NOTEQU          reduce using rule 28 (expression -> factor .)
+    AND             reduce using rule 28 (expression -> factor .)
+    OR              reduce using rule 28 (expression -> factor .)
+    NOT             reduce using rule 28 (expression -> factor .)
+    IN              reduce using rule 28 (expression -> factor .)
+    COMMA           reduce using rule 28 (expression -> factor .)
+    RBRACE          reduce using rule 28 (expression -> factor .)
+
+
+state 9
+
+    (27) expression -> MINUS . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 38
+    factor                         shift and go to state 8
+
+state 10
+
+    (26) expression -> NOT . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 39
+    factor                         shift and go to state 8
+
+state 11
+
+    (29) factor -> NUMBER .
+
+    RPAREN          reduce using rule 29 (factor -> NUMBER .)
+    LBRACE          reduce using rule 29 (factor -> NUMBER .)
+    PLUS            reduce using rule 29 (factor -> NUMBER .)
+    MINUS           reduce using rule 29 (factor -> NUMBER .)
+    TIMES           reduce using rule 29 (factor -> NUMBER .)
+    DIVIDE          reduce using rule 29 (factor -> NUMBER .)
+    POWER           reduce using rule 29 (factor -> NUMBER .)
+    MODULUS         reduce using rule 29 (factor -> NUMBER .)
+    FLOOR           reduce using rule 29 (factor -> NUMBER .)
+    LESS            reduce using rule 29 (factor -> NUMBER .)
+    GREAT           reduce using rule 29 (factor -> NUMBER .)
+    LESSEQU         reduce using rule 29 (factor -> NUMBER .)
+    GREATEQU        reduce using rule 29 (factor -> NUMBER .)
+    EQU             reduce using rule 29 (factor -> NUMBER .)
+    NOTEQU          reduce using rule 29 (factor -> NUMBER .)
+    AND             reduce using rule 29 (factor -> NUMBER .)
+    OR              reduce using rule 29 (factor -> NUMBER .)
+    NOT             reduce using rule 29 (factor -> NUMBER .)
+    IN              reduce using rule 29 (factor -> NUMBER .)
+    COMMA           reduce using rule 29 (factor -> NUMBER .)
+    RBRACE          reduce using rule 29 (factor -> NUMBER .)
+
+
+state 12
+
+    (30) factor -> BOOLEAN .
+
+    RPAREN          reduce using rule 30 (factor -> BOOLEAN .)
+    LBRACE          reduce using rule 30 (factor -> BOOLEAN .)
+    PLUS            reduce using rule 30 (factor -> BOOLEAN .)
+    MINUS           reduce using rule 30 (factor -> BOOLEAN .)
+    TIMES           reduce using rule 30 (factor -> BOOLEAN .)
+    DIVIDE          reduce using rule 30 (factor -> BOOLEAN .)
+    POWER           reduce using rule 30 (factor -> BOOLEAN .)
+    MODULUS         reduce using rule 30 (factor -> BOOLEAN .)
+    FLOOR           reduce using rule 30 (factor -> BOOLEAN .)
+    LESS            reduce using rule 30 (factor -> BOOLEAN .)
+    GREAT           reduce using rule 30 (factor -> BOOLEAN .)
+    LESSEQU         reduce using rule 30 (factor -> BOOLEAN .)
+    GREATEQU        reduce using rule 30 (factor -> BOOLEAN .)
+    EQU             reduce using rule 30 (factor -> BOOLEAN .)
+    NOTEQU          reduce using rule 30 (factor -> BOOLEAN .)
+    AND             reduce using rule 30 (factor -> BOOLEAN .)
+    OR              reduce using rule 30 (factor -> BOOLEAN .)
+    NOT             reduce using rule 30 (factor -> BOOLEAN .)
+    IN              reduce using rule 30 (factor -> BOOLEAN .)
+    COMMA           reduce using rule 30 (factor -> BOOLEAN .)
+    RBRACE          reduce using rule 30 (factor -> BOOLEAN .)
+
+
+state 13
+
+    (31) factor -> STRING .
+
+    RPAREN          reduce using rule 31 (factor -> STRING .)
+    LBRACE          reduce using rule 31 (factor -> STRING .)
+    PLUS            reduce using rule 31 (factor -> STRING .)
+    MINUS           reduce using rule 31 (factor -> STRING .)
+    TIMES           reduce using rule 31 (factor -> STRING .)
+    DIVIDE          reduce using rule 31 (factor -> STRING .)
+    POWER           reduce using rule 31 (factor -> STRING .)
+    MODULUS         reduce using rule 31 (factor -> STRING .)
+    FLOOR           reduce using rule 31 (factor -> STRING .)
+    LESS            reduce using rule 31 (factor -> STRING .)
+    GREAT           reduce using rule 31 (factor -> STRING .)
+    LESSEQU         reduce using rule 31 (factor -> STRING .)
+    GREATEQU        reduce using rule 31 (factor -> STRING .)
+    EQU             reduce using rule 31 (factor -> STRING .)
+    NOTEQU          reduce using rule 31 (factor -> STRING .)
+    AND             reduce using rule 31 (factor -> STRING .)
+    OR              reduce using rule 31 (factor -> STRING .)
+    NOT             reduce using rule 31 (factor -> STRING .)
+    IN              reduce using rule 31 (factor -> STRING .)
+    COMMA           reduce using rule 31 (factor -> STRING .)
+    RBRACE          reduce using rule 31 (factor -> STRING .)
+
+
+state 14
+
+    (32) expression -> LPAREN expression . RPAREN
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          shift and go to state 40
+    LBRACE          shift and go to state 16
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    LESS            shift and go to state 24
+    GREAT           shift and go to state 25
+    LESSEQU         shift and go to state 26
+    GREATEQU        shift and go to state 27
+    EQU             shift and go to state 28
+    NOTEQU          shift and go to state 29
+    AND             shift and go to state 30
+    OR              shift and go to state 31
+    NOT             shift and go to state 32
+    IN              shift and go to state 33
+
+
+state 15
+
+    (2) print_smt -> PRINT LPAREN expression RPAREN . SEMI
+
+    SEMI            shift and go to state 41
+
+
+state 16
+
+    (5) expression -> expression LBRACE . factor RBRACE
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    factor                         shift and go to state 42
+
+state 17
+
+    (9) expression -> expression PLUS . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 43
+    factor                         shift and go to state 8
+
+state 18
+
+    (10) expression -> expression MINUS . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 44
+    factor                         shift and go to state 8
+
+state 19
+
+    (11) expression -> expression TIMES . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 45
+    factor                         shift and go to state 8
+
+state 20
+
+    (12) expression -> expression DIVIDE . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 46
+    factor                         shift and go to state 8
+
+state 21
+
+    (13) expression -> expression POWER . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 47
+    factor                         shift and go to state 8
+
+state 22
+
+    (14) expression -> expression MODULUS . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 48
+    factor                         shift and go to state 8
+
+state 23
+
+    (15) expression -> expression FLOOR . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 49
+    factor                         shift and go to state 8
+
+state 24
+
+    (16) expression -> expression LESS . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 50
+    factor                         shift and go to state 8
+
+state 25
+
+    (17) expression -> expression GREAT . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 51
+    factor                         shift and go to state 8
+
+state 26
+
+    (18) expression -> expression LESSEQU . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 52
+    factor                         shift and go to state 8
+
+state 27
+
+    (19) expression -> expression GREATEQU . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 53
+    factor                         shift and go to state 8
+
+state 28
+
+    (20) expression -> expression EQU . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 54
+    factor                         shift and go to state 8
+
+state 29
+
+    (21) expression -> expression NOTEQU . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 55
+    factor                         shift and go to state 8
+
+state 30
+
+    (22) expression -> expression AND . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 56
+    factor                         shift and go to state 8
+
+state 31
+
+    (23) expression -> expression OR . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 57
+    factor                         shift and go to state 8
+
+state 32
+
+    (24) expression -> expression NOT . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 58
+    factor                         shift and go to state 8
+
+state 33
+
+    (25) expression -> expression IN . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    LBRACE          shift and go to state 7
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    expression                     shift and go to state 59
+    factor                         shift and go to state 8
+
+state 34
+
+    (6) inblock -> LBRACE . inblock RBRACE
+    (3) expression -> LBRACE . inblock RBRACE LBRACE factor RBRACE
+    (4) inblock -> . expression COMMA inblock
+    (6) inblock -> . LBRACE inblock RBRACE
+    (7) inblock -> . smt inblock
+    (8) inblock -> . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (1) smt -> . print_smt
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+    (2) print_smt -> . PRINT LPAREN expression RPAREN SEMI
+
+    LBRACE          shift and go to state 34
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+    PRINT           shift and go to state 3
+
+    inblock                        shift and go to state 60
+    factor                         shift and go to state 8
+    expression                     shift and go to state 36
+    smt                            shift and go to state 37
+    print_smt                      shift and go to state 2
+
+state 35
+
+    (3) expression -> LBRACE inblock . RBRACE LBRACE factor RBRACE
+
+    RBRACE          shift and go to state 61
+
+
+state 36
+
+    (4) inblock -> expression . COMMA inblock
+    (8) inblock -> expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    COMMA           shift and go to state 62
+    RBRACE          reduce using rule 8 (inblock -> expression .)
+    LBRACE          shift and go to state 16
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    LESS            shift and go to state 24
+    GREAT           shift and go to state 25
+    LESSEQU         shift and go to state 26
+    GREATEQU        shift and go to state 27
+    EQU             shift and go to state 28
+    NOTEQU          shift and go to state 29
+    AND             shift and go to state 30
+    OR              shift and go to state 31
+    NOT             shift and go to state 32
+    IN              shift and go to state 33
+
+
+state 37
+
+    (7) inblock -> smt . inblock
+    (4) inblock -> . expression COMMA inblock
+    (6) inblock -> . LBRACE inblock RBRACE
+    (7) inblock -> . smt inblock
+    (8) inblock -> . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (1) smt -> . print_smt
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+    (2) print_smt -> . PRINT LPAREN expression RPAREN SEMI
+
+    LBRACE          shift and go to state 34
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+    PRINT           shift and go to state 3
+
+    smt                            shift and go to state 37
+    inblock                        shift and go to state 63
+    expression                     shift and go to state 36
+    factor                         shift and go to state 8
+    print_smt                      shift and go to state 2
+
+state 38
+
+    (27) expression -> MINUS expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 27 (expression -> MINUS expression .)
+    LBRACE          reduce using rule 27 (expression -> MINUS expression .)
+    PLUS            reduce using rule 27 (expression -> MINUS expression .)
+    MINUS           reduce using rule 27 (expression -> MINUS expression .)
+    TIMES           reduce using rule 27 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 27 (expression -> MINUS expression .)
+    POWER           reduce using rule 27 (expression -> MINUS expression .)
+    MODULUS         reduce using rule 27 (expression -> MINUS expression .)
+    FLOOR           reduce using rule 27 (expression -> MINUS expression .)
+    LESS            reduce using rule 27 (expression -> MINUS expression .)
+    GREAT           reduce using rule 27 (expression -> MINUS expression .)
+    LESSEQU         reduce using rule 27 (expression -> MINUS expression .)
+    GREATEQU        reduce using rule 27 (expression -> MINUS expression .)
+    EQU             reduce using rule 27 (expression -> MINUS expression .)
+    NOTEQU          reduce using rule 27 (expression -> MINUS expression .)
+    AND             reduce using rule 27 (expression -> MINUS expression .)
+    OR              reduce using rule 27 (expression -> MINUS expression .)
+    NOT             reduce using rule 27 (expression -> MINUS expression .)
+    IN              reduce using rule 27 (expression -> MINUS expression .)
+    COMMA           reduce using rule 27 (expression -> MINUS expression .)
+    RBRACE          reduce using rule 27 (expression -> MINUS expression .)
+
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! POWER           [ shift and go to state 21 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 39
+
+    (26) expression -> NOT expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 26 (expression -> NOT expression .)
+    LBRACE          reduce using rule 26 (expression -> NOT expression .)
+    PLUS            reduce using rule 26 (expression -> NOT expression .)
+    MINUS           reduce using rule 26 (expression -> NOT expression .)
+    TIMES           reduce using rule 26 (expression -> NOT expression .)
+    DIVIDE          reduce using rule 26 (expression -> NOT expression .)
+    MODULUS         reduce using rule 26 (expression -> NOT expression .)
+    FLOOR           reduce using rule 26 (expression -> NOT expression .)
+    LESS            reduce using rule 26 (expression -> NOT expression .)
+    GREAT           reduce using rule 26 (expression -> NOT expression .)
+    LESSEQU         reduce using rule 26 (expression -> NOT expression .)
+    GREATEQU        reduce using rule 26 (expression -> NOT expression .)
+    EQU             reduce using rule 26 (expression -> NOT expression .)
+    NOTEQU          reduce using rule 26 (expression -> NOT expression .)
+    AND             reduce using rule 26 (expression -> NOT expression .)
+    OR              reduce using rule 26 (expression -> NOT expression .)
+    NOT             reduce using rule 26 (expression -> NOT expression .)
+    IN              reduce using rule 26 (expression -> NOT expression .)
+    COMMA           reduce using rule 26 (expression -> NOT expression .)
+    RBRACE          reduce using rule 26 (expression -> NOT expression .)
+    POWER           shift and go to state 21
+
+  ! POWER           [ reduce using rule 26 (expression -> NOT expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 40
+
+    (32) expression -> LPAREN expression RPAREN .
+
+    RPAREN          reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    LBRACE          reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    POWER           reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    MODULUS         reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    FLOOR           reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    LESS            reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    GREAT           reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    LESSEQU         reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    GREATEQU        reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    EQU             reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    NOTEQU          reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    AND             reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    OR              reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    NOT             reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    IN              reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+    RBRACE          reduce using rule 32 (expression -> LPAREN expression RPAREN .)
+
+
+state 41
+
+    (2) print_smt -> PRINT LPAREN expression RPAREN SEMI .
+
+    $end            reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    LBRACE          reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    NOT             reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    MINUS           reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    LPAREN          reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    NUMBER          reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    BOOLEAN         reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    STRING          reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+    PRINT           reduce using rule 2 (print_smt -> PRINT LPAREN expression RPAREN SEMI .)
+
+
+state 42
+
+    (5) expression -> expression LBRACE factor . RBRACE
+
+    RBRACE          shift and go to state 64
+
+
+state 43
+
+    (9) expression -> expression PLUS expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 9 (expression -> expression PLUS expression .)
+    LBRACE          reduce using rule 9 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 9 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 9 (expression -> expression PLUS expression .)
+    LESS            reduce using rule 9 (expression -> expression PLUS expression .)
+    GREAT           reduce using rule 9 (expression -> expression PLUS expression .)
+    LESSEQU         reduce using rule 9 (expression -> expression PLUS expression .)
+    GREATEQU        reduce using rule 9 (expression -> expression PLUS expression .)
+    EQU             reduce using rule 9 (expression -> expression PLUS expression .)
+    NOTEQU          reduce using rule 9 (expression -> expression PLUS expression .)
+    AND             reduce using rule 9 (expression -> expression PLUS expression .)
+    OR              reduce using rule 9 (expression -> expression PLUS expression .)
+    IN              reduce using rule 9 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 9 (expression -> expression PLUS expression .)
+    RBRACE          reduce using rule 9 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! TIMES           [ reduce using rule 9 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 9 (expression -> expression PLUS expression .) ]
+  ! POWER           [ reduce using rule 9 (expression -> expression PLUS expression .) ]
+  ! MODULUS         [ reduce using rule 9 (expression -> expression PLUS expression .) ]
+  ! FLOOR           [ reduce using rule 9 (expression -> expression PLUS expression .) ]
+  ! NOT             [ reduce using rule 9 (expression -> expression PLUS expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 44
+
+    (10) expression -> expression MINUS expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 10 (expression -> expression MINUS expression .)
+    LBRACE          reduce using rule 10 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 10 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 10 (expression -> expression MINUS expression .)
+    LESS            reduce using rule 10 (expression -> expression MINUS expression .)
+    GREAT           reduce using rule 10 (expression -> expression MINUS expression .)
+    LESSEQU         reduce using rule 10 (expression -> expression MINUS expression .)
+    GREATEQU        reduce using rule 10 (expression -> expression MINUS expression .)
+    EQU             reduce using rule 10 (expression -> expression MINUS expression .)
+    NOTEQU          reduce using rule 10 (expression -> expression MINUS expression .)
+    AND             reduce using rule 10 (expression -> expression MINUS expression .)
+    OR              reduce using rule 10 (expression -> expression MINUS expression .)
+    IN              reduce using rule 10 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 10 (expression -> expression MINUS expression .)
+    RBRACE          reduce using rule 10 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! TIMES           [ reduce using rule 10 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 10 (expression -> expression MINUS expression .) ]
+  ! POWER           [ reduce using rule 10 (expression -> expression MINUS expression .) ]
+  ! MODULUS         [ reduce using rule 10 (expression -> expression MINUS expression .) ]
+  ! FLOOR           [ reduce using rule 10 (expression -> expression MINUS expression .) ]
+  ! NOT             [ reduce using rule 10 (expression -> expression MINUS expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 45
+
+    (11) expression -> expression TIMES expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 11 (expression -> expression TIMES expression .)
+    LBRACE          reduce using rule 11 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 11 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 11 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 11 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 11 (expression -> expression TIMES expression .)
+    MODULUS         reduce using rule 11 (expression -> expression TIMES expression .)
+    FLOOR           reduce using rule 11 (expression -> expression TIMES expression .)
+    LESS            reduce using rule 11 (expression -> expression TIMES expression .)
+    GREAT           reduce using rule 11 (expression -> expression TIMES expression .)
+    LESSEQU         reduce using rule 11 (expression -> expression TIMES expression .)
+    GREATEQU        reduce using rule 11 (expression -> expression TIMES expression .)
+    EQU             reduce using rule 11 (expression -> expression TIMES expression .)
+    NOTEQU          reduce using rule 11 (expression -> expression TIMES expression .)
+    AND             reduce using rule 11 (expression -> expression TIMES expression .)
+    OR              reduce using rule 11 (expression -> expression TIMES expression .)
+    NOT             reduce using rule 11 (expression -> expression TIMES expression .)
+    IN              reduce using rule 11 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 11 (expression -> expression TIMES expression .)
+    RBRACE          reduce using rule 11 (expression -> expression TIMES expression .)
+    POWER           shift and go to state 21
+
+  ! POWER           [ reduce using rule 11 (expression -> expression TIMES expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 46
+
+    (12) expression -> expression DIVIDE expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 12 (expression -> expression DIVIDE expression .)
+    LBRACE          reduce using rule 12 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 12 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 12 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 12 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 12 (expression -> expression DIVIDE expression .)
+    MODULUS         reduce using rule 12 (expression -> expression DIVIDE expression .)
+    FLOOR           reduce using rule 12 (expression -> expression DIVIDE expression .)
+    LESS            reduce using rule 12 (expression -> expression DIVIDE expression .)
+    GREAT           reduce using rule 12 (expression -> expression DIVIDE expression .)
+    LESSEQU         reduce using rule 12 (expression -> expression DIVIDE expression .)
+    GREATEQU        reduce using rule 12 (expression -> expression DIVIDE expression .)
+    EQU             reduce using rule 12 (expression -> expression DIVIDE expression .)
+    NOTEQU          reduce using rule 12 (expression -> expression DIVIDE expression .)
+    AND             reduce using rule 12 (expression -> expression DIVIDE expression .)
+    OR              reduce using rule 12 (expression -> expression DIVIDE expression .)
+    NOT             reduce using rule 12 (expression -> expression DIVIDE expression .)
+    IN              reduce using rule 12 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 12 (expression -> expression DIVIDE expression .)
+    RBRACE          reduce using rule 12 (expression -> expression DIVIDE expression .)
+    POWER           shift and go to state 21
+
+  ! POWER           [ reduce using rule 12 (expression -> expression DIVIDE expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 47
+
+    (13) expression -> expression POWER expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 13 (expression -> expression POWER expression .)
+    LBRACE          reduce using rule 13 (expression -> expression POWER expression .)
+    PLUS            reduce using rule 13 (expression -> expression POWER expression .)
+    MINUS           reduce using rule 13 (expression -> expression POWER expression .)
+    TIMES           reduce using rule 13 (expression -> expression POWER expression .)
+    DIVIDE          reduce using rule 13 (expression -> expression POWER expression .)
+    MODULUS         reduce using rule 13 (expression -> expression POWER expression .)
+    FLOOR           reduce using rule 13 (expression -> expression POWER expression .)
+    LESS            reduce using rule 13 (expression -> expression POWER expression .)
+    GREAT           reduce using rule 13 (expression -> expression POWER expression .)
+    LESSEQU         reduce using rule 13 (expression -> expression POWER expression .)
+    GREATEQU        reduce using rule 13 (expression -> expression POWER expression .)
+    EQU             reduce using rule 13 (expression -> expression POWER expression .)
+    NOTEQU          reduce using rule 13 (expression -> expression POWER expression .)
+    AND             reduce using rule 13 (expression -> expression POWER expression .)
+    OR              reduce using rule 13 (expression -> expression POWER expression .)
+    NOT             reduce using rule 13 (expression -> expression POWER expression .)
+    IN              reduce using rule 13 (expression -> expression POWER expression .)
+    COMMA           reduce using rule 13 (expression -> expression POWER expression .)
+    RBRACE          reduce using rule 13 (expression -> expression POWER expression .)
+    POWER           shift and go to state 21
+
+  ! POWER           [ reduce using rule 13 (expression -> expression POWER expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 48
+
+    (14) expression -> expression MODULUS expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 14 (expression -> expression MODULUS expression .)
+    LBRACE          reduce using rule 14 (expression -> expression MODULUS expression .)
+    PLUS            reduce using rule 14 (expression -> expression MODULUS expression .)
+    MINUS           reduce using rule 14 (expression -> expression MODULUS expression .)
+    TIMES           reduce using rule 14 (expression -> expression MODULUS expression .)
+    DIVIDE          reduce using rule 14 (expression -> expression MODULUS expression .)
+    MODULUS         reduce using rule 14 (expression -> expression MODULUS expression .)
+    FLOOR           reduce using rule 14 (expression -> expression MODULUS expression .)
+    LESS            reduce using rule 14 (expression -> expression MODULUS expression .)
+    GREAT           reduce using rule 14 (expression -> expression MODULUS expression .)
+    LESSEQU         reduce using rule 14 (expression -> expression MODULUS expression .)
+    GREATEQU        reduce using rule 14 (expression -> expression MODULUS expression .)
+    EQU             reduce using rule 14 (expression -> expression MODULUS expression .)
+    NOTEQU          reduce using rule 14 (expression -> expression MODULUS expression .)
+    AND             reduce using rule 14 (expression -> expression MODULUS expression .)
+    OR              reduce using rule 14 (expression -> expression MODULUS expression .)
+    NOT             reduce using rule 14 (expression -> expression MODULUS expression .)
+    IN              reduce using rule 14 (expression -> expression MODULUS expression .)
+    COMMA           reduce using rule 14 (expression -> expression MODULUS expression .)
+    RBRACE          reduce using rule 14 (expression -> expression MODULUS expression .)
+    POWER           shift and go to state 21
+
+  ! POWER           [ reduce using rule 14 (expression -> expression MODULUS expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 49
+
+    (15) expression -> expression FLOOR expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 15 (expression -> expression FLOOR expression .)
+    LBRACE          reduce using rule 15 (expression -> expression FLOOR expression .)
+    PLUS            reduce using rule 15 (expression -> expression FLOOR expression .)
+    MINUS           reduce using rule 15 (expression -> expression FLOOR expression .)
+    TIMES           reduce using rule 15 (expression -> expression FLOOR expression .)
+    DIVIDE          reduce using rule 15 (expression -> expression FLOOR expression .)
+    MODULUS         reduce using rule 15 (expression -> expression FLOOR expression .)
+    FLOOR           reduce using rule 15 (expression -> expression FLOOR expression .)
+    LESS            reduce using rule 15 (expression -> expression FLOOR expression .)
+    GREAT           reduce using rule 15 (expression -> expression FLOOR expression .)
+    LESSEQU         reduce using rule 15 (expression -> expression FLOOR expression .)
+    GREATEQU        reduce using rule 15 (expression -> expression FLOOR expression .)
+    EQU             reduce using rule 15 (expression -> expression FLOOR expression .)
+    NOTEQU          reduce using rule 15 (expression -> expression FLOOR expression .)
+    AND             reduce using rule 15 (expression -> expression FLOOR expression .)
+    OR              reduce using rule 15 (expression -> expression FLOOR expression .)
+    NOT             reduce using rule 15 (expression -> expression FLOOR expression .)
+    IN              reduce using rule 15 (expression -> expression FLOOR expression .)
+    COMMA           reduce using rule 15 (expression -> expression FLOOR expression .)
+    RBRACE          reduce using rule 15 (expression -> expression FLOOR expression .)
+    POWER           shift and go to state 21
+
+  ! POWER           [ reduce using rule 15 (expression -> expression FLOOR expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 50
+
+    (16) expression -> expression LESS expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 16 (expression -> expression LESS expression .)
+    LBRACE          reduce using rule 16 (expression -> expression LESS expression .)
+    LESS            reduce using rule 16 (expression -> expression LESS expression .)
+    GREAT           reduce using rule 16 (expression -> expression LESS expression .)
+    LESSEQU         reduce using rule 16 (expression -> expression LESS expression .)
+    GREATEQU        reduce using rule 16 (expression -> expression LESS expression .)
+    EQU             reduce using rule 16 (expression -> expression LESS expression .)
+    NOTEQU          reduce using rule 16 (expression -> expression LESS expression .)
+    AND             reduce using rule 16 (expression -> expression LESS expression .)
+    OR              reduce using rule 16 (expression -> expression LESS expression .)
+    IN              reduce using rule 16 (expression -> expression LESS expression .)
+    COMMA           reduce using rule 16 (expression -> expression LESS expression .)
+    RBRACE          reduce using rule 16 (expression -> expression LESS expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! MINUS           [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! TIMES           [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! DIVIDE          [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! POWER           [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! MODULUS         [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! FLOOR           [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! NOT             [ reduce using rule 16 (expression -> expression LESS expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 51
+
+    (17) expression -> expression GREAT expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 17 (expression -> expression GREAT expression .)
+    LBRACE          reduce using rule 17 (expression -> expression GREAT expression .)
+    LESS            reduce using rule 17 (expression -> expression GREAT expression .)
+    GREAT           reduce using rule 17 (expression -> expression GREAT expression .)
+    LESSEQU         reduce using rule 17 (expression -> expression GREAT expression .)
+    GREATEQU        reduce using rule 17 (expression -> expression GREAT expression .)
+    EQU             reduce using rule 17 (expression -> expression GREAT expression .)
+    NOTEQU          reduce using rule 17 (expression -> expression GREAT expression .)
+    AND             reduce using rule 17 (expression -> expression GREAT expression .)
+    OR              reduce using rule 17 (expression -> expression GREAT expression .)
+    IN              reduce using rule 17 (expression -> expression GREAT expression .)
+    COMMA           reduce using rule 17 (expression -> expression GREAT expression .)
+    RBRACE          reduce using rule 17 (expression -> expression GREAT expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! MINUS           [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! TIMES           [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! DIVIDE          [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! POWER           [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! MODULUS         [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! FLOOR           [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! NOT             [ reduce using rule 17 (expression -> expression GREAT expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 52
+
+    (18) expression -> expression LESSEQU expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 18 (expression -> expression LESSEQU expression .)
+    LBRACE          reduce using rule 18 (expression -> expression LESSEQU expression .)
+    LESS            reduce using rule 18 (expression -> expression LESSEQU expression .)
+    GREAT           reduce using rule 18 (expression -> expression LESSEQU expression .)
+    LESSEQU         reduce using rule 18 (expression -> expression LESSEQU expression .)
+    GREATEQU        reduce using rule 18 (expression -> expression LESSEQU expression .)
+    EQU             reduce using rule 18 (expression -> expression LESSEQU expression .)
+    NOTEQU          reduce using rule 18 (expression -> expression LESSEQU expression .)
+    AND             reduce using rule 18 (expression -> expression LESSEQU expression .)
+    OR              reduce using rule 18 (expression -> expression LESSEQU expression .)
+    IN              reduce using rule 18 (expression -> expression LESSEQU expression .)
+    COMMA           reduce using rule 18 (expression -> expression LESSEQU expression .)
+    RBRACE          reduce using rule 18 (expression -> expression LESSEQU expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! MINUS           [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! TIMES           [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! DIVIDE          [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! POWER           [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! MODULUS         [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! FLOOR           [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! NOT             [ reduce using rule 18 (expression -> expression LESSEQU expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 53
+
+    (19) expression -> expression GREATEQU expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 19 (expression -> expression GREATEQU expression .)
+    LBRACE          reduce using rule 19 (expression -> expression GREATEQU expression .)
+    LESS            reduce using rule 19 (expression -> expression GREATEQU expression .)
+    GREAT           reduce using rule 19 (expression -> expression GREATEQU expression .)
+    LESSEQU         reduce using rule 19 (expression -> expression GREATEQU expression .)
+    GREATEQU        reduce using rule 19 (expression -> expression GREATEQU expression .)
+    EQU             reduce using rule 19 (expression -> expression GREATEQU expression .)
+    NOTEQU          reduce using rule 19 (expression -> expression GREATEQU expression .)
+    AND             reduce using rule 19 (expression -> expression GREATEQU expression .)
+    OR              reduce using rule 19 (expression -> expression GREATEQU expression .)
+    IN              reduce using rule 19 (expression -> expression GREATEQU expression .)
+    COMMA           reduce using rule 19 (expression -> expression GREATEQU expression .)
+    RBRACE          reduce using rule 19 (expression -> expression GREATEQU expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! MINUS           [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! TIMES           [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! DIVIDE          [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! POWER           [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! MODULUS         [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! FLOOR           [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! NOT             [ reduce using rule 19 (expression -> expression GREATEQU expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 54
+
+    (20) expression -> expression EQU expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 20 (expression -> expression EQU expression .)
+    LBRACE          reduce using rule 20 (expression -> expression EQU expression .)
+    LESS            reduce using rule 20 (expression -> expression EQU expression .)
+    GREAT           reduce using rule 20 (expression -> expression EQU expression .)
+    LESSEQU         reduce using rule 20 (expression -> expression EQU expression .)
+    GREATEQU        reduce using rule 20 (expression -> expression EQU expression .)
+    EQU             reduce using rule 20 (expression -> expression EQU expression .)
+    NOTEQU          reduce using rule 20 (expression -> expression EQU expression .)
+    AND             reduce using rule 20 (expression -> expression EQU expression .)
+    OR              reduce using rule 20 (expression -> expression EQU expression .)
+    IN              reduce using rule 20 (expression -> expression EQU expression .)
+    COMMA           reduce using rule 20 (expression -> expression EQU expression .)
+    RBRACE          reduce using rule 20 (expression -> expression EQU expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! MINUS           [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! TIMES           [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! DIVIDE          [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! POWER           [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! MODULUS         [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! FLOOR           [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! NOT             [ reduce using rule 20 (expression -> expression EQU expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 55
+
+    (21) expression -> expression NOTEQU expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 21 (expression -> expression NOTEQU expression .)
+    LBRACE          reduce using rule 21 (expression -> expression NOTEQU expression .)
+    LESS            reduce using rule 21 (expression -> expression NOTEQU expression .)
+    GREAT           reduce using rule 21 (expression -> expression NOTEQU expression .)
+    LESSEQU         reduce using rule 21 (expression -> expression NOTEQU expression .)
+    GREATEQU        reduce using rule 21 (expression -> expression NOTEQU expression .)
+    EQU             reduce using rule 21 (expression -> expression NOTEQU expression .)
+    NOTEQU          reduce using rule 21 (expression -> expression NOTEQU expression .)
+    AND             reduce using rule 21 (expression -> expression NOTEQU expression .)
+    OR              reduce using rule 21 (expression -> expression NOTEQU expression .)
+    IN              reduce using rule 21 (expression -> expression NOTEQU expression .)
+    COMMA           reduce using rule 21 (expression -> expression NOTEQU expression .)
+    RBRACE          reduce using rule 21 (expression -> expression NOTEQU expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! MINUS           [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! TIMES           [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! DIVIDE          [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! POWER           [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! MODULUS         [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! FLOOR           [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! NOT             [ reduce using rule 21 (expression -> expression NOTEQU expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 56
+
+    (22) expression -> expression AND expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 22 (expression -> expression AND expression .)
+    LBRACE          reduce using rule 22 (expression -> expression AND expression .)
+    AND             reduce using rule 22 (expression -> expression AND expression .)
+    OR              reduce using rule 22 (expression -> expression AND expression .)
+    IN              reduce using rule 22 (expression -> expression AND expression .)
+    COMMA           reduce using rule 22 (expression -> expression AND expression .)
+    RBRACE          reduce using rule 22 (expression -> expression AND expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    LESS            shift and go to state 24
+    GREAT           shift and go to state 25
+    LESSEQU         shift and go to state 26
+    GREATEQU        shift and go to state 27
+    EQU             shift and go to state 28
+    NOTEQU          shift and go to state 29
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! MINUS           [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! TIMES           [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! DIVIDE          [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! POWER           [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! MODULUS         [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! FLOOR           [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! LESS            [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! GREAT           [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! LESSEQU         [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! GREATEQU        [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! EQU             [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! NOTEQU          [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! NOT             [ reduce using rule 22 (expression -> expression AND expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 57
+
+    (23) expression -> expression OR expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 23 (expression -> expression OR expression .)
+    LBRACE          reduce using rule 23 (expression -> expression OR expression .)
+    OR              reduce using rule 23 (expression -> expression OR expression .)
+    IN              reduce using rule 23 (expression -> expression OR expression .)
+    COMMA           reduce using rule 23 (expression -> expression OR expression .)
+    RBRACE          reduce using rule 23 (expression -> expression OR expression .)
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    LESS            shift and go to state 24
+    GREAT           shift and go to state 25
+    LESSEQU         shift and go to state 26
+    GREATEQU        shift and go to state 27
+    EQU             shift and go to state 28
+    NOTEQU          shift and go to state 29
+    AND             shift and go to state 30
+    NOT             shift and go to state 32
+
+  ! PLUS            [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! MINUS           [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! TIMES           [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! DIVIDE          [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! POWER           [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! MODULUS         [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! FLOOR           [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! LESS            [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! GREAT           [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! LESSEQU         [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! GREATEQU        [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! EQU             [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! NOTEQU          [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! AND             [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! NOT             [ reduce using rule 23 (expression -> expression OR expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! OR              [ shift and go to state 31 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 58
+
+    (24) expression -> expression NOT expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+    RPAREN          reduce using rule 24 (expression -> expression NOT expression .)
+    LBRACE          reduce using rule 24 (expression -> expression NOT expression .)
+    PLUS            reduce using rule 24 (expression -> expression NOT expression .)
+    MINUS           reduce using rule 24 (expression -> expression NOT expression .)
+    TIMES           reduce using rule 24 (expression -> expression NOT expression .)
+    DIVIDE          reduce using rule 24 (expression -> expression NOT expression .)
+    MODULUS         reduce using rule 24 (expression -> expression NOT expression .)
+    FLOOR           reduce using rule 24 (expression -> expression NOT expression .)
+    LESS            reduce using rule 24 (expression -> expression NOT expression .)
+    GREAT           reduce using rule 24 (expression -> expression NOT expression .)
+    LESSEQU         reduce using rule 24 (expression -> expression NOT expression .)
+    GREATEQU        reduce using rule 24 (expression -> expression NOT expression .)
+    EQU             reduce using rule 24 (expression -> expression NOT expression .)
+    NOTEQU          reduce using rule 24 (expression -> expression NOT expression .)
+    AND             reduce using rule 24 (expression -> expression NOT expression .)
+    OR              reduce using rule 24 (expression -> expression NOT expression .)
+    NOT             reduce using rule 24 (expression -> expression NOT expression .)
+    IN              reduce using rule 24 (expression -> expression NOT expression .)
+    COMMA           reduce using rule 24 (expression -> expression NOT expression .)
+    RBRACE          reduce using rule 24 (expression -> expression NOT expression .)
+    POWER           shift and go to state 21
+
+  ! POWER           [ reduce using rule 24 (expression -> expression NOT expression .) ]
+  ! LBRACE          [ shift and go to state 16 ]
+  ! PLUS            [ shift and go to state 17 ]
+  ! MINUS           [ shift and go to state 18 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULUS         [ shift and go to state 22 ]
+  ! FLOOR           [ shift and go to state 23 ]
+  ! LESS            [ shift and go to state 24 ]
+  ! GREAT           [ shift and go to state 25 ]
+  ! LESSEQU         [ shift and go to state 26 ]
+  ! GREATEQU        [ shift and go to state 27 ]
+  ! EQU             [ shift and go to state 28 ]
+  ! NOTEQU          [ shift and go to state 29 ]
+  ! AND             [ shift and go to state 30 ]
+  ! OR              [ shift and go to state 31 ]
+  ! NOT             [ shift and go to state 32 ]
+  ! IN              [ shift and go to state 33 ]
+
+
+state 59
+
+    (25) expression -> expression IN expression .
+    (5) expression -> expression . LBRACE factor RBRACE
+    (9) expression -> expression . PLUS expression
+    (10) expression -> expression . MINUS expression
+    (11) expression -> expression . TIMES expression
+    (12) expression -> expression . DIVIDE expression
+    (13) expression -> expression . POWER expression
+    (14) expression -> expression . MODULUS expression
+    (15) expression -> expression . FLOOR expression
+    (16) expression -> expression . LESS expression
+    (17) expression -> expression . GREAT expression
+    (18) expression -> expression . LESSEQU expression
+    (19) expression -> expression . GREATEQU expression
+    (20) expression -> expression . EQU expression
+    (21) expression -> expression . NOTEQU expression
+    (22) expression -> expression . AND expression
+    (23) expression -> expression . OR expression
+    (24) expression -> expression . NOT expression
+    (25) expression -> expression . IN expression
+
+  ! shift/reduce conflict for LBRACE resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for POWER resolved as shift
+  ! shift/reduce conflict for MODULUS resolved as shift
+  ! shift/reduce conflict for FLOOR resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREAT resolved as shift
+  ! shift/reduce conflict for LESSEQU resolved as shift
+  ! shift/reduce conflict for GREATEQU resolved as shift
+  ! shift/reduce conflict for EQU resolved as shift
+  ! shift/reduce conflict for NOTEQU resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+  ! shift/reduce conflict for IN resolved as shift
+    RPAREN          reduce using rule 25 (expression -> expression IN expression .)
+    COMMA           reduce using rule 25 (expression -> expression IN expression .)
+    RBRACE          reduce using rule 25 (expression -> expression IN expression .)
+    LBRACE          shift and go to state 16
+    PLUS            shift and go to state 17
+    MINUS           shift and go to state 18
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    POWER           shift and go to state 21
+    MODULUS         shift and go to state 22
+    FLOOR           shift and go to state 23
+    LESS            shift and go to state 24
+    GREAT           shift and go to state 25
+    LESSEQU         shift and go to state 26
+    GREATEQU        shift and go to state 27
+    EQU             shift and go to state 28
+    NOTEQU          shift and go to state 29
+    AND             shift and go to state 30
+    OR              shift and go to state 31
+    NOT             shift and go to state 32
+    IN              shift and go to state 33
+
+  ! LBRACE          [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! PLUS            [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! MINUS           [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! TIMES           [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! DIVIDE          [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! POWER           [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! MODULUS         [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! FLOOR           [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! LESS            [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! GREAT           [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! LESSEQU         [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! GREATEQU        [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! EQU             [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! NOTEQU          [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! AND             [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! OR              [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! NOT             [ reduce using rule 25 (expression -> expression IN expression .) ]
+  ! IN              [ reduce using rule 25 (expression -> expression IN expression .) ]
+
+
+state 60
+
+    (6) inblock -> LBRACE inblock . RBRACE
+    (3) expression -> LBRACE inblock . RBRACE LBRACE factor RBRACE
+
+    RBRACE          shift and go to state 65
+
+
+state 61
+
+    (3) expression -> LBRACE inblock RBRACE . LBRACE factor RBRACE
+
+    LBRACE          shift and go to state 66
+
+
+state 62
+
+    (4) inblock -> expression COMMA . inblock
+    (4) inblock -> . expression COMMA inblock
+    (6) inblock -> . LBRACE inblock RBRACE
+    (7) inblock -> . smt inblock
+    (8) inblock -> . expression
+    (3) expression -> . LBRACE inblock RBRACE LBRACE factor RBRACE
+    (5) expression -> . expression LBRACE factor RBRACE
+    (9) expression -> . expression PLUS expression
+    (10) expression -> . expression MINUS expression
+    (11) expression -> . expression TIMES expression
+    (12) expression -> . expression DIVIDE expression
+    (13) expression -> . expression POWER expression
+    (14) expression -> . expression MODULUS expression
+    (15) expression -> . expression FLOOR expression
+    (16) expression -> . expression LESS expression
+    (17) expression -> . expression GREAT expression
+    (18) expression -> . expression LESSEQU expression
+    (19) expression -> . expression GREATEQU expression
+    (20) expression -> . expression EQU expression
+    (21) expression -> . expression NOTEQU expression
+    (22) expression -> . expression AND expression
+    (23) expression -> . expression OR expression
+    (24) expression -> . expression NOT expression
+    (25) expression -> . expression IN expression
+    (26) expression -> . NOT expression
+    (27) expression -> . MINUS expression
+    (28) expression -> . factor
+    (32) expression -> . LPAREN expression RPAREN
+    (1) smt -> . print_smt
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+    (2) print_smt -> . PRINT LPAREN expression RPAREN SEMI
+
+    LBRACE          shift and go to state 34
+    NOT             shift and go to state 10
+    MINUS           shift and go to state 9
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+    PRINT           shift and go to state 3
+
+    expression                     shift and go to state 36
+    inblock                        shift and go to state 67
+    smt                            shift and go to state 37
+    factor                         shift and go to state 8
+    print_smt                      shift and go to state 2
+
+state 63
+
+    (7) inblock -> smt inblock .
+
+    RBRACE          reduce using rule 7 (inblock -> smt inblock .)
+
+
+state 64
+
+    (5) expression -> expression LBRACE factor RBRACE .
+
+    RPAREN          reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    LBRACE          reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    PLUS            reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    MINUS           reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    TIMES           reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    DIVIDE          reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    POWER           reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    MODULUS         reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    FLOOR           reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    LESS            reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    GREAT           reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    LESSEQU         reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    GREATEQU        reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    EQU             reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    NOTEQU          reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    AND             reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    OR              reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    NOT             reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    IN              reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    COMMA           reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+    RBRACE          reduce using rule 5 (expression -> expression LBRACE factor RBRACE .)
+
+
+state 65
+
+    (6) inblock -> LBRACE inblock RBRACE .
+    (3) expression -> LBRACE inblock RBRACE . LBRACE factor RBRACE
+
+    RBRACE          reduce using rule 6 (inblock -> LBRACE inblock RBRACE .)
+    LBRACE          shift and go to state 66
+
+
+state 66
+
+    (3) expression -> LBRACE inblock RBRACE LBRACE . factor RBRACE
+    (29) factor -> . NUMBER
+    (30) factor -> . BOOLEAN
+    (31) factor -> . STRING
+
+    NUMBER          shift and go to state 11
+    BOOLEAN         shift and go to state 12
+    STRING          shift and go to state 13
+
+    factor                         shift and go to state 68
+
+state 67
+
+    (4) inblock -> expression COMMA inblock .
+
+    RBRACE          reduce using rule 4 (inblock -> expression COMMA inblock .)
+
+
+state 68
+
+    (3) expression -> LBRACE inblock RBRACE LBRACE factor . RBRACE
+
+    RBRACE          shift and go to state 69
+
+
+state 69
+
+    (3) expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .
+
+    RPAREN          reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    LBRACE          reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    PLUS            reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    MINUS           reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    TIMES           reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    DIVIDE          reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    POWER           reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    MODULUS         reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    FLOOR           reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    LESS            reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    GREAT           reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    LESSEQU         reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    GREATEQU        reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    EQU             reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    NOTEQU          reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    AND             reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    OR              reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    NOT             reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    IN              reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    COMMA           reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+    RBRACE          reduce using rule 3 (expression -> LBRACE inblock RBRACE LBRACE factor RBRACE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for LBRACE in state 59 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 59 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 59 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 59 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 59 resolved as shift
+WARNING: shift/reduce conflict for POWER in state 59 resolved as shift
+WARNING: shift/reduce conflict for MODULUS in state 59 resolved as shift
+WARNING: shift/reduce conflict for FLOOR in state 59 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 59 resolved as shift
+WARNING: shift/reduce conflict for GREAT in state 59 resolved as shift
+WARNING: shift/reduce conflict for LESSEQU in state 59 resolved as shift
+WARNING: shift/reduce conflict for GREATEQU in state 59 resolved as shift
+WARNING: shift/reduce conflict for EQU in state 59 resolved as shift
+WARNING: shift/reduce conflict for NOTEQU in state 59 resolved as shift
+WARNING: shift/reduce conflict for AND in state 59 resolved as shift
+WARNING: shift/reduce conflict for OR in state 59 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 59 resolved as shift
+WARNING: shift/reduce conflict for IN in state 59 resolved as shift
