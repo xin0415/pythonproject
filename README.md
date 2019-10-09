@@ -1,4 +1,4 @@
-# pythonproject
+# python project
 This folder contains three python project. tool use: yacc and lex
 1. using python to solve these four questions that described in pdf files.
 2. using python to do calculation. The project reads the every string from the txt file and calculate the result through the rule as described in python code.
